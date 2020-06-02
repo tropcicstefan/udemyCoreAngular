@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DatingApp.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers
 {
-    //atribute based routingdotne
+    [Authorize]
+    //atribute based routing dotnet
     [Route("api/[controller]")]
+    //forces attribute routing
+    //automatically validates request
     [ApiController]
     public class ValuesController : ControllerBase
     {
@@ -20,8 +24,8 @@ namespace DatingApp.API.Controllers
             _context = context;
         }
 
-//ako pocinje sa get net zna da je http get
-//npr ako je upit u bazi kompliciraniji blokiras applikaciju pa koristis async
+        //ako pocinje sa get net zna da je http get
+        //npr ako je upit u bazi kompliciraniji blokiras applikaciju pa koristis async
         // GET api/values
         [HttpGet]
         public async Task<IActionResult> GetValues()
@@ -30,6 +34,7 @@ namespace DatingApp.API.Controllers
             return Ok(values);
         }
 
+        [AllowAnonymous]
         // GET api/values/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
