@@ -30,9 +30,7 @@ namespace DatingApp.API.Controllers
         {
             //validate req
             // if(!ModelState.IsValid)
-            //     return BadRequest(ModelState); 
-            //  ovo ne treba ako koristis apicontroler annotation,
-            //  ali za zavrsni i repo pattern mozda je to ono sto mi treba????-istraziti
+            //     return BadRequest(ModelState);
 
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
