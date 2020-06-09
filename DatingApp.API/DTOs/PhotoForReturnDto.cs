@@ -1,8 +1,8 @@
 using System;
 
-namespace DatingApp.API.Models
+namespace DatingApp.API.DTOs
 {
-    public class Photo
+    public class PhotoForReturnDto
     {
         public int ID { get; set; }
         public string Url { get; set; }
@@ -10,8 +10,6 @@ namespace DatingApp.API.Models
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
         public string PublicID { get; set; }
-        //ovakvo spajanje uzrokuje cascade delete
-        public User User { get; set; }
-        public int UserID { get; set; }
+
     }
 }
