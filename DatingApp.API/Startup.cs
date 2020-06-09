@@ -42,6 +42,7 @@ namespace DatingApp.API
             services.AddCors();
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
+            services.AddScoped<LogUserActivity>();
             //services singleton-jedan jedini kroz aplikaciju, reusa za bilo kad, stvara probleme kod concurrent users
             //transient ligthweight stateless services, svaki put kad dode request stvori novi
             //addscoped once per request per scope
