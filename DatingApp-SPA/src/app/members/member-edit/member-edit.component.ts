@@ -16,11 +16,11 @@ export class MemberEditComponent implements OnInit {
   photoUrl: string;
   @ViewChild('editForm', {static: true}) editForm: NgForm;
   @HostListener('window: beforeunload', ['$event'])
-  unloadNotification($event: any) {
-    if (this.editForm.dirty) {
-      $event.returnValue = true;
+    unloadNotification($event: any) {
+      if (this.editForm.dirty) {
+        $event.returnValue = true;
+      }
     }
-  }
 
   constructor(private route: ActivatedRoute,
               private alertify: AlertifyService,
